@@ -11,13 +11,19 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/tasks', function () {
 
-    $tasks = [
-        '買い物に行く',
-        '宿題をする',
-        '仕事をする'
-    ];
+    $tasks = DB::table('tasks')->get();
 
-    return view('welcome', compact('tasks'));
+    return view('tasks.index', compact('tasks'));
+
+});
+
+
+Route::get('/tasks/{task}', function ($id) {
+
+    $task = DB::table('tasks')->find($id);
+
+    return view('tasks.show', compact('task'));
+
 });
