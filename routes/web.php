@@ -12,5 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+    $tasks = [
+        '買い物に行く',
+        '宿題をする',
+        '仕事をする'
+    ];
+
+    return view('welcome', compact('tasks'));
 });
