@@ -11,14 +11,14 @@
 |
 */
 
-use App\Http\Middleware\HelloMiddleware;
+// use App\Http\Middleware\HelloMiddleware;
 
 
 Route::get('/', function () {
     return view ('welcome');
 });
 
-Route::get('hello', 'HelloController@index')->middleware(HelloMiddleware::class);
+Route::get('hello', 'HelloController@index');
 
 Route::get('/tasks', function () {
 
