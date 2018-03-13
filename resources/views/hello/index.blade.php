@@ -7,11 +7,14 @@
 
 @section('content')
     <p>ここが本文のコンテンツです。</p>
-    <p>必要なだけ記述できます。</p>
-
-    @include('components.message', ['msg_title'=>'タイトル', 'msg_content'=>'サブビューのコンテンツ'])
-
-    @each('components.item', $data, 'item')
+    <table>
+        @foreach($data as $item)
+        <tr>
+            <th>{{$item['name']}}</th>
+            <td>{{$item['mail']}}</td>
+        </tr>
+        @endforeach
+    </table>
 
 @endsection
 
